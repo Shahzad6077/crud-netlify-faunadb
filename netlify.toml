@@ -1,8 +1,10 @@
 [build]
     command = "gatsby build"
-    publish = "public/"
-    functions = 'functions/'
-[[redirects]]
-    from = "/api/*"
-    to = ".netlify/functions/:splat"
+    publish = "public"
+    functions = "functions"
+[dev]
+    functions = "functions"
+[[redirect]]
+    to = "api/*"
+    from = ".netlify/functions/:splat"
     status = 200
