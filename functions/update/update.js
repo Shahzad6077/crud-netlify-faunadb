@@ -18,22 +18,32 @@ const client = new faunaDB.Client({
 const businessLogic = async (event, context, callback) => {
   // event.body has already been turned into an object by `jsonBodyParser` middleware
   try {
-    const { docId } = event.queryStringParameters
+    const { docId, name, price, stock_qty } = event.body
+    let updatedData = { name, price, stock_qty }
 
-    if (!docId || `${docId}`.length === 0) {
+    if (!docId || (docId && docId.length === 0)) {
       return callback(null, {
         statusCode: 400,
         body: JSON.stringify({
           result: "failed",
-          message: "DocId is required.",
+          message: "Invalid Doc-id",
         }),
       })
     }
+    Object.entries(updatedData).forEach(d => {
+      if (!d[1] || d[1] === "" || d[1] === null) {
+        delete updatedData[d[0]]
+      }
+    })
     const docRef = query.Ref(query.Collection("products"), `${docId}`)
 
-    var result = await client.query(query.Get(docRef))
-
-    // console.log(result)
+    var result = await client.query(
+      query.Update(docRef, {
+        data: {
+          ...updatedData,
+        },
+      })
+    )
 
     return callback(null, {
       statusCode: 200,
@@ -52,7 +62,7 @@ const businessLogic = async (event, context, callback) => {
 }
 
 exports.handler = middy(businessLogic)
-  .use(checkMethod("GET"))
+  .use(checkMethod("POST"))
   .use(httpHeaderNormalizer())
   // parses the request body when it's a JSON and converts it to an object
   .use(jsonBodyParser())
