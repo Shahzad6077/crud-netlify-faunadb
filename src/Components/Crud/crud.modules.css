@@ -1,0 +1,20 @@
+.crudWrapper {
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(var(--maxWidth) / 3);
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.formWrapper input {
+  padding: 6px 8px;
+  font-size: 120%;
+  font-weight: 500;
+  margin: 4px 0px;
+}
+.formWrapper button {
+  margin-top: 1rem;
+}

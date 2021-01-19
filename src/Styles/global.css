@@ -1,0 +1,88 @@
+:root {
+  --fs-base: 100%;
+  --line-height: calc(1rem * 1.5);
+  --fs-h1: 3.157rem;
+  --fs-h2: 2.369rem;
+  --fs-h3: 1.777rem;
+  --fs-h4: 1.333rem;
+  --fs-p: 1rem;
+  --fs-sm: 0.75rem;
+  --black: #424242;
+  --gray: #444a51;
+  --white: #fefefe;
+  --purple: #514762;
+  --maxWidth: 1080px;
+  --red: #e64c4c;
+  --red-10: #ec7979;
+  --warning: var(--red);
+  --warningHighlight: var(--red-10);
+
+  --green: #cbe56c;
+  --green-10: #daed97;
+
+  --success: var(--green);
+  --successHighlight: var(--green-10);
+  --phone: 640px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+html {
+  font-size: 112.5%/1.45em;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Quicksand", sans-serif;
+  /* // font-size: var(--fs-base); */
+  color: var(--black);
+  font-weight: 500;
+}
+
+*,
+::after,
+::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+a:focus,
+a:active,
+a:visited {
+  color: var(--black);
+}
+
+.primary-btn {
+  padding: 0.6rem 1rem;
+  outline: none;
+  border: none;
+  background-color: var(--purple);
+  color: var(--white);
+  font-family: "Quicksand";
+  font-weight: 600;
+  cursor: pointer;
+  height: 40px;
+}
+
+.error {
+  color: var(--warning);
+}
+
+@media screen and (max-width: 580px) {
+  body {
+    font-size: 85%;
+  }
+}

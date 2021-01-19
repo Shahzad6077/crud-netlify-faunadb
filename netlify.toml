@@ -8,18 +8,3 @@
     to = "api/*"
     from = ".netlify/functions/:splat"
     status = 200
-# [[redirect]]
-#     from = "/shahzad docId=:docId"
-#     to = "/.netlify/functions/read?docId=:docId"
-#     query = { docId = ":docId" }
-#     status = 200
-# [[redirect]]
-#     from = "/shahzad docId=:docId"
-#     to = "/.netlify/functions/read?docId=:docId"
-#     query = { docId = ":docId" }
-#     status = 200
-# [[redirect]]
-#     from = "/.netlify/functions/read/:docId"
-#     to = "/.netlify/functions/read?docId=:docId"
-#     query = { docId = ":docId" }
-#     status = 200
