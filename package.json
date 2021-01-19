@@ -17,7 +17,8 @@
     "faunadb": "^4.0.0",
     "gatsby": "^2.26.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "middy": "^0.36.0"
   },
   "devDependencies": {
     "prettier": "2.2.1"
