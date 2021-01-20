@@ -11,6 +11,7 @@
   --gray: #444a51;
   --white: #fefefe;
   --purple: #514762;
+  --blue: #aae4e4;
   --maxWidth: 1080px;
   --red: #e64c4c;
   --red-10: #ec7979;
@@ -68,13 +69,26 @@ a:visited {
 .primary-btn {
   padding: 0.6rem 1rem;
   outline: none;
-  border: none;
+  border: 1px solid transparent;
   background-color: var(--purple);
   color: var(--white);
   font-family: "Quicksand";
   font-weight: 600;
   cursor: pointer;
   height: 40px;
+  margin-bottom: 6px;
+}
+.primary-btn:hover {
+  border-color: inherit;
+}
+.t-bg {
+  background-color: transparent;
+}
+.warning-clr {
+  color: var(--warning);
+}
+.info-bg {
+  background-color: var(--blue);
 }
 
 .error {

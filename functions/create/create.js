@@ -19,7 +19,6 @@ const businessLogic = async (event, context, callback) => {
   // event.body has already been turned into an object by `jsonBodyParser` middleware
   try {
     const { name, price, stock_qty } = event.body
-
     if (
       !name ||
       !price ||

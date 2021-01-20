@@ -9,7 +9,7 @@ const {
 
 const faunaDB = require("faunadb")
 const { checkMethod } = require("../Utils")
-const query = faunaDB.query
+const { Paginate, Match, Lambda, Map, Index, Get, Var } = faunaDB.query
 
 const client = new faunaDB.Client({
   secret: process.env.FAUNADB_SERVER_SECRET,
@@ -18,32 +18,36 @@ const client = new faunaDB.Client({
 const businessLogic = async (event, context, callback) => {
   // event.body has already been turned into an object by `jsonBodyParser` middleware
   try {
-    const { docId } = event.queryStringParameters
+    // const { docId } = event.queryStringParameters
 
-    if (!docId || `${docId}`.length === 0) {
-      return callback(null, {
-        statusCode: 400,
-        body: JSON.stringify({
-          result: "failed",
-          message: "DocId is required.",
-        }),
-      })
-    }
-    const docRef = query.Ref(query.Collection("products"), `${docId}`)
+    // if (!docId || `${docId}`.length === 0) {
+    //   return callback(null, {
+    //     statusCode: 400,
+    //     body: JSON.stringify({
+    //       result: "failed",
+    //       message: "DocId is required.",
+    //     }),
+    //   })
+    // }
+    // const docRef = query.Ref(query.Collection("products"), `${docId}`)
 
-    var result = await client.query(query.Get(docRef))
+    // var result = await client.query(query.Get(docRef))
 
-    // console.log(result)
+    const docRefs = Paginate(Match(Index("get_products")))
 
+    let results = await client.query(
+      Map(docRefs, Lambda("ref", Get(Var("ref"))))
+    )
+    results = results.data.map(o => ({
+      id: o.ref.id,
+      ts: o.ts,
+      ...o.data,
+    }))
     return callback(null, {
       statusCode: 200,
       body: JSON.stringify({
         result: "success",
-        data: {
-          id: result.ref.id,
-          ts: result.ts,
-          ...result.data,
-        },
+        data: results,
       }),
     })
   } catch (err) {

@@ -1,0 +1,56 @@
+.crudWrapper {
+  padding: 0px 1rem;
+}
+.createView h2 {
+  text-align: center;
+}
+.formWrapper form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  max-width: calc(var(--maxWidth) / 3);
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.formWrapper input {
+  padding: 6px 8px;
+  font-size: 120%;
+  font-weight: 500;
+  margin: 4px 0px;
+  margin-bottom: 6px;
+}
+.formWrapper button {
+  margin-top: 1rem;
+}
+/* ITEM STYLING */
+.itemWrapper {
+  display: flex;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px dotted;
+  margin: 1rem 0px;
+}
+.itemWrapper__content {
+  flex-grow: 1;
+}
+.itemWrapper__content ul {
+  list-style: none;
+}
+.itemWrapper__content ul li {
+  display: flex;
+}
+.itemWrapper__content ul li span:nth-child(1) {
+  flex-basis: 100px;
+  font-weight: 600;
+}
+.itemWrapper__content ul li span:nth-child(2) {
+  border-bottom: 1px dotted;
+}
+
+.listWrapper {
+  margin: 1rem;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,9 +1,14 @@
 import React, { FC } from "react"
+import { CrudComp } from "../Components"
 
 type Props = {}
 
 const Index: FC<Props> = () => {
-  return <div>Hello Comp</div>
+  return (
+    <div>
+      <CrudComp />
+    </div>
+  )
 }
 
 export default Index
