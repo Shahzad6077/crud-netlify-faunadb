@@ -165,6 +165,7 @@ const CrudComp: FC<Props> = () => {
                     </button>
                   </div>
                 }
+                activeId={state.id}
               />
             )
           })

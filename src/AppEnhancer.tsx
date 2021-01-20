@@ -1,11 +1,12 @@
 import React, { FC, Fragment } from "react"
 import { Toaster } from "react-hot-toast"
+import { Layout } from "./Components"
 const Index: FC = ({ children }) => {
   return (
-    <div style={{ maxWidth: "var(--maxWidth)", margin: "auto" }}>
+    <Layout>
       {children}
       <Toaster position="bottom-center" reverseOrder={false} />
-    </div>
+    </Layout>
   )
 }
 

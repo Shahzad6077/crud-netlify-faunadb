@@ -5,8 +5,14 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Faunadb Crud`,
+    description: `Faunadb CRUD with netlify functions as a serverless functions.`,
+    author: `M Shahzad Ali`,
+  },
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       // resolve: "gatsby-plugin-prefetch-google-fonts",
       resolve: "gatsby-plugin-webfonts",

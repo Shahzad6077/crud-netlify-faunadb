@@ -5,11 +5,16 @@ import classes from "./crud.module.css"
 type Props = {
   actions?: React.ReactNode
   data: CRUD_DATA
+  activeId?: string
 }
 
-const Item: FC<Props> = ({ actions, data }) => {
+const Item: FC<Props> = ({ actions, data, activeId }) => {
   return (
-    <div className={classes.itemWrapper}>
+    <div
+      className={`${classes.itemWrapper}  ${
+        activeId === data.id && "info-bg "
+      }`}
+    >
       <div className={classes.itemWrapper__content}>
         <ul>
           {Object.entries(data).map((kvArr, i) => {

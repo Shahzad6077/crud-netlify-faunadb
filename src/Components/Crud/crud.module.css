@@ -26,7 +26,7 @@
 /* ITEM STYLING */
 .itemWrapper {
   display: flex;
-  padding-bottom: 0.8rem;
+  padding: 0.8rem;
   border-bottom: 2px dotted;
   margin: 1rem 0px;
 }
